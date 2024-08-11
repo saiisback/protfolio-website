@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
@@ -137,6 +139,12 @@ export const testimonials = [
     title: "President of Atal lab at DPSBN",
     img:'',
   },
+  {
+    quote:"Sai is a highly skilled frontend developer with a strong portfolio that demonstrates his technical expertise, creativity, and dedication to delivering exceptional user experiences. He is well-equipped to take on challenging projects and make a meaningful impact in any development team.",
+    name:"Akash sarangi",
+    title:"Head of the tech team",
+    img:'',
+  }
   
 ];
 
