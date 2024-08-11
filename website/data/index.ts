@@ -29,7 +29,7 @@ export const gridItems = [
   {
     id: 3,
     title: "My tech stack",
-    description: "I'm always pushing to get better",
+    description: "Constantly improving.",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-center",
@@ -75,32 +75,50 @@ export const projects = [
     title: "Created Leetcode Clone",
     des: "A Leetcode clone with a dark mode, and a code editor with syntax highlighting and autocompletion.",
     img: "/P1.png",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", ],
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg",'/firebase.svg' ],
+    url:'/ui.github.com',
     link: "https://github.com/saiisback/leetcode_clone",
+    status:"Check Github repo",
   },
   {
     id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-    img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "/ui.yoom.com",
+    title: "Waycup website - group of freelancers",
+    des: "A  designed and deployed website for a group of freelancers, with a blog and a contact form.",
+    img: "/P2.png",
+    iconLists: ["/html.svg", "/css.svg", "/javascript.svg",],
+    url:'/ui.waycup.com',
+    link: "https://way-cup.github.io/waycup.github.io/",
+    status:"Check live site",
   },
   {
     id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-    img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "/ui.aiimg.com",
+    title: "Dog Services and Care App UI ",
+    des: "A UI design for a dog health app,with all the necessities needed for the dog care  and a clean and modern design.",
+    img: "/P3.png",
+    iconLists: ["/figma.svg"],
+    url:"/ui.pawsleeves",
+    link: "https://www.figma.com/design/0fKcMjp7w4Kq5sQ5NCnzqv/Dog-services-app-UI?node-id=25-145&t=S2wfY3aEhhkxeWEX-1",
+    status:"Check Figma file",
   },
   {
     id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "/ui.apple.com",
+    title: "Music Streaming Service UI",
+    des: "A UI design for a music streaming service, with a light mode and a music player.",
+    img: "/P4.png",
+    iconLists: ["/figma.svg"],
+    url:'/ui.MusicApp',
+    link: "https://www.figma.com/design/8Om8TBst0WQ1NqGf03uWdx/Music-Mobile-App-UI?node-id=3-115&t=0kTrbRlvq6rNKwek-0",
+    status:"Check Figma file",
+  },
+  {
+    id: 5,
+    title: "Spotify Ui Clone",
+    des: "A clone which redesigns the Spotify web player, with a light mode and a music player.",
+    img: "/P5.png",
+    iconLists: ["/figma.svg"],
+    url:'/ui.musicfy',
+    link: "https://www.figma.com/design/eyENYXXU89WfBBHmLEf5qm/Music-Streaming-Service?node-id=0-1&t=HLA7C5LxCY6K0Es2-1",
+    status:"Check Figma file",
   },
 ];
 
@@ -109,7 +127,7 @@ export const testimonials = [
     quote:
       "I would rate your service 5/5⭐️.You have done a fantastic job while doing my work, It was systematic work and it was quick service by Sai Karthik.I expected that it would take more than a week but it took less than that, And i also liked the designs made by Sai karthik. It was quite unique and user friendly designs",
     name: "Mayank lilani",
-    title: "project manager",
+    title: "marketing Head",
     img:'./tail.svg',
   },
   {
@@ -125,14 +143,14 @@ export const testimonials = [
 export const companies = [
   {
     id: 1,
-    name: "cloudinary",
-    img: "/cloud.svg",
-    nameImg: "/cloudName.svg",
+    name: "Delhi public school",
+    img: "/next.svg",
+    nameImg: "/nextjs-13.svg",
   },
   {
     id: 2,
     name: "appwrite",
-    img: "/app.svg",
+    img: "/re.svg",
     nameImg: "/appName.svg",
   },
   {
@@ -194,12 +212,12 @@ export const socialMedia = [
   },
   {
     id: 2,
-    img: "/twit.svg",
-    link:''
+    img: "/insta.svg",
+    link:'https://www.instagram.com/invalid.dev/'
   },
   {
     id: 3,
     img: "/link.svg",
-    link:''
+    link:'https://www.linkedin.com/in/sai-karthik-ketha'
   },
 ];
