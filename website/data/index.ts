@@ -143,33 +143,33 @@ export const testimonials = [
 export const companies = [
   {
     id: 1,
-    name: "Delhi public school",
+    name: "next",
     img: "/next.svg",
-    nameImg: "/nextjs-13.svg",
+    nameImg: "/nexttext.svg",
   },
   {
     id: 2,
-    name: "appwrite",
+    name: "react",
     img: "/re.svg",
-    nameImg: "/appName.svg",
+    nameImg: "/reactname.svg",
   },
   {
     id: 3,
     name: "HOSTINGER",
-    img: "/host.svg",
-    nameImg: "/hostName.svg",
+    img: "/ace.png",
+    nameImg: "/acetext.svg",
   },
   {
     id: 4,
     name: "stream",
-    img: "/s.svg",
-    nameImg: "/streamName.svg",
+    img: "/ts.svg",
+    nameImg: "/tsname.svg",
   },
   {
     id: 5,
-    name: "docker.",
-    img: "/dock.svg",
-    nameImg: "/dockerName.svg",
+    name: "tail.",
+    img: "/tail.svg",
+    nameImg: "/tailtext.svg",
   },
 ];
 
