@@ -25,7 +25,7 @@ const Hero = () => {
 
               <TextGenerateEffect 
               className='text-center text-[40px] md:text-5xl lg:text-6xl font-bold'
-              words='Tranforming Concepts into Seamless User Experiences' />
+              words='Designing Seamless and Impactful User Journeys' />
               
               <p className='text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl'>
                 Hi , I&apos;m Sai Karthik Ketha, a full stack developer based in India. I specialize in building high quality websites and applications with a focus on performance and user experience.
