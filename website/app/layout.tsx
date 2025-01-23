@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sai Karthik Ketha | Full-Stack Developer & Entrepreneur",
     description: "Explore the portfolio of Sai Karthik Ketha, a skilled developer and entrepreneur. Specializing in modern web and app development.",
-    url: "https://saikarthikketha.vercel.app", // Replace with your actual portfolio URL
+    url: "https://saikarthikketha.tech", // Replace with your actual portfolio URL
     images: [
       {
         url: "/sai.jpg", // Replace with your preview image
@@ -48,7 +48,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/logo.png" sizes="any" />
+        <link rel="icon" href="/logo.png" sizes="any" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={inter.className}>
         <ThemeProvider
