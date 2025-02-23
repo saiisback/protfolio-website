@@ -139,7 +139,7 @@ export const projects = [
     img: "/P7.png",
     iconLists: ["/re.svg","/tail.svg"],
     url:'/ui.brainware',
-    link: "https://iphonewebsite.vercel.app",
+    link: "https://brainware-saiisback.vercel.app",
     status:"Check Live Site",
   },
 ];
