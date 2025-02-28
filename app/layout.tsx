@@ -10,33 +10,22 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Sai Karthik Ketha | Full-Stack Developer & Entrepreneur",
-  description: "Portfolio of Sai Karthik Ketha - Full-Stack Developer, Entrepreneur, and Founder of Waycup Studios. Specializing in web and app development, delivering modern, efficient, and innovative digital solutions.",
-  keywords: "Sai Karthik Ketha, Full-Stack Developer, Web Developer, App Developer, Entrepreneur, Waycup Studios, Portfolio, Modern Web Development, Freelance Developer",
+  description: "Full-Stack Developer, AI Enthusiast, and Founder of Waycup Studios. Explore modern web and app development projects.",
+  keywords: "Full-Stack Developer, AI, Web Development, Freelance Developer, Next.js, React, Tailwind CSS, TypeScript",
   authors: [{ name: "Sai Karthik Ketha", url: "https://github.com/saiisback" }],
   robots: "index, follow",
-
-  // Open Graph Metadata for link previews
   openGraph: {
     title: "Sai Karthik Ketha | Full-Stack Developer & Entrepreneur",
-    description: "Explore the portfolio of Sai Karthik Ketha, a skilled developer and entrepreneur. Specializing in modern web and app development.",
-    url: "https://saikarthikketha.tech", // Replace with your actual portfolio URL
-    images: [
-      {
-        url: "/sai.jpg", // Replace with your preview image
-        width: 1200,
-        height: 630,
-        alt: "Sai Karthik Ketha Portfolio",
-      },
-    ],
+    description: "Portfolio showcasing modern web and app development projects.",
+    url: "https://saikarthikketha.tech",
+    images: [{ url: "/sai.jpg", width: 1200, height: 630, alt: "Sai Karthik Ketha Portfolio" }],
     type: "website",
   },
-
-  // Twitter Card Metadata for link previews on Twitter
   twitter: {
-    card: "summary_large_image", // Use "summary" for a smaller image, "summary_large_image" for a larger one
+    card: "summary_large_image",
     title: "Sai Karthik Ketha | Full-Stack Developer & Entrepreneur",
-    description: "Portfolio of Sai Karthik Ketha - Full-Stack Developer and Entrepreneur.",
-    images: ["/sai.jpg"], // Replace with your preview image URL
+    description: "Explore the portfolio of Sai Karthik Ketha, a skilled developer and entrepreneur.",
+    images: ["/sai.jpg"],
   },
 };
 
