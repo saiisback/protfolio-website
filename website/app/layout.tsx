@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import { Analytics } from "@vercel/analytics/react"
+
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
@@ -52,6 +54,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logo.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
+
+      <Analytics/>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
