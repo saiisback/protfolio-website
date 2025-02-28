@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Sai Karthik Ketha | Full-Stack Developer & Entrepreneur",
   description: "Full-Stack Developer, AI Enthusiast, and Founder of Waycup Studios. Explore modern web and app development projects.",
-  keywords: "Full-Stack Developer, AI, Web Development, Freelance Developer, Next.js, React, Tailwind CSS, TypeScript",
+  keywords: "Sai Karthik Ketha ,Full-Stack Developer, AI, Web Development, Freelance Developer, Next.js, React, Tailwind CSS, TypeScript",
   authors: [{ name: "Sai Karthik Ketha", url: "https://github.com/saiisback" }],
   robots: "index, follow",
   openGraph: {
