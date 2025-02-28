@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://saikarthikketha.tech
+
+# Sitemaps
+Sitemap: https://saikarthikketha.tech/sitemap.xml
