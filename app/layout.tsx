@@ -52,7 +52,6 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo.png" sizes="any" type="image/png" />
         <link rel="apple-touch-icon" href="/logo.png" />
-        <link rel="manifest" href="/site.webmanifest" />
       </head>
 
       <Analytics/>
