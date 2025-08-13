@@ -29,7 +29,7 @@ function DesktopContent() {
           <div className="text-center">
             <div className="w-50 h-50 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 mx-auto  flex items-center justify-center overflow-hidden">
               <img
-                src="/sai.jpeg"
+                src="/sai.jpg"
                 alt="Sai Karthik Ketha"
                 className="w-full h-full object-cover"
               />
