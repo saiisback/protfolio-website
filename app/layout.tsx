@@ -19,9 +19,48 @@ const kalam = Kalam({
 })
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Sai Karthik | Portfolio",
+  description: "Explore Sai Karthik's portfolio: projects, skills, and experience in software engineering and design.",
+  generator: "Next.js",
+  authors: [{ name: "Sai Karthik", url: "https://github.com/saikarthik" }],
+  keywords: [
+    "Sai Karthik",
+    "Portfolio",
+    "Software Engineer",
+    "Web Developer",
+    "React",
+    "TypeScript",
+    "Projects",
+    "Resume",
+    "Frontend",
+    "Backend",
+    "Design",
+  ],
+  openGraph: {
+    title: "Sai Karthik | Portfolio",
+    description: "Discover projects and skills of Sai Karthik, a passionate software engineer.",
+    url: "https://your-portfolio-url.com",
+    siteName: "Sai Karthik Portfolio",
+    images: [
+      {
+        url: "https://your-portfolio-url.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sai Karthik Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sai Karthik | Portfolio",
+    description: "Explore Sai Karthik's work in software engineering and design.",
+    images: ["https://your-portfolio-url.com/og-image.png"],
+    creator: "@yourtwitterhandle",
+  },
+  themeColor: "#0a192f",
+  viewport: "width=device-width, initial-scale=1",
 }
 
 export default function RootLayout({
