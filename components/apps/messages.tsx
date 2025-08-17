@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Search, Phone, VideoIcon, Info } from "lucide-react"
+import { Search, Phone, VideoIcon, Info, X } from "lucide-react"
+import { useWindowManager } from "../desktop/window-manager"
 
 interface Message {
   id: string
@@ -28,139 +29,73 @@ export default function MessagesApp() {
   const [displayedMessages, setDisplayedMessages] = useState<Message[]>([])
   const [isTyping, setIsTyping] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const timeoutsRef = useRef<number[]>([])
+  const { closeWindow } = useWindowManager()
 
   const contacts: Contact[] = [
     {
-      id: "sarah-tech",
-      name: "Sarah Chen",
-      company: "TechFlow Inc",
+      id: "mayank-lilani",
+      name: "Mayank Lilani",
+      company: "Marketing Head",
       avatar: "/placeholder.svg?height=40&width=40",
-      lastMessage: "The AI integration exceeded our expectations!",
+      lastMessage: "I would rate your service 5/5⭐️.",
       timestamp: "2:34 PM",
       isOnline: true,
       messages: [
         {
-          text: "Hi Sarah! How was your experience working with me on the TechFlow project?",
+          text: "Hi Mayank! Would love your feedback on our recent work together.",
           isFromMe: true,
-          timestamp: new Date("2024-01-15T14:30:00"),
+          timestamp: new Date("2025-06-01T14:30:00"),
         },
         {
-          text: "Sai, working with you was absolutely fantastic! The AI integration you built for our customer service platform exceeded all our expectations.",
+          text:
+            "I would rate your service 5/5⭐️. You have done a fantastic job while doing my work, it was systematic and quick service by Sai Karthik. I expected that it would take more than a week but it took less than that, and I also liked the designs made by Sai Karthik. It was quite unique and user‑friendly designs.",
           isFromMe: false,
-          timestamp: new Date("2024-01-15T14:32:00"),
-        },
-        {
-          text: "Your attention to detail and ability to translate complex requirements into elegant solutions really impressed our entire team.",
-          isFromMe: false,
-          timestamp: new Date("2024-01-15T14:32:30"),
-        },
-        {
-          text: "The sentiment analysis feature you implemented has improved our response time by 40% and customer satisfaction scores are through the roof!",
-          isFromMe: false,
-          timestamp: new Date("2024-01-15T14:34:00"),
+          timestamp: new Date("2025-06-01T14:32:00"),
         },
       ],
     },
     {
-      id: "marcus-startup",
-      name: "Marcus Rodriguez",
-      company: "InnovateLab",
+      id: "akash-sarangi",
+      name: "Akash Sarangi",
+      company: "Head of the Tech Team",
       avatar: "/placeholder.svg?height=40&width=40",
-      lastMessage: "Best developer we've worked with!",
+      lastMessage: "Highly skilled frontend developer",
       timestamp: "Yesterday",
       isOnline: false,
       messages: [
         {
-          text: "Marcus, I'd love to hear your thoughts on our collaboration for the InnovateLab platform!",
+          text: "Akash, how was your experience working with me?",
           isFromMe: true,
-          timestamp: new Date("2024-01-14T16:20:00"),
+          timestamp: new Date("2025-05-20T16:20:00"),
         },
         {
-          text: "Honestly, you're the best developer we've worked with. Period.",
+          text:
+            "Sai is a highly skilled frontend developer with a strong portfolio that demonstrates his technical expertise, creativity, and dedication to delivering exceptional user experiences. He is well-equipped to take on challenging projects and make a meaningful impact in any development team.",
           isFromMe: false,
-          timestamp: new Date("2024-01-14T16:25:00"),
-        },
-        {
-          text: "Your full-stack expertise saved us months of development time. The way you architected our SaaS platform was brilliant.",
-          isFromMe: false,
-          timestamp: new Date("2024-01-14T16:26:00"),
-        },
-        {
-          text: "But what really stood out was your product thinking. You didn't just code what we asked for - you improved our ideas and suggested better solutions.",
-          isFromMe: false,
-          timestamp: new Date("2024-01-14T16:27:00"),
-        },
-        {
-          text: "We're definitely working together again on our next project!",
-          isFromMe: false,
-          timestamp: new Date("2024-01-14T16:28:00"),
+          timestamp: new Date("2025-05-20T16:25:00"),
         },
       ],
     },
     {
-      id: "emily-enterprise",
-      name: "Emily Watson",
-      company: "DataCorp Solutions",
+      id: "aditya-nair",
+      name: "Aditya S Nair",
+      company: "President, Atal Lab (DPSBN)",
       avatar: "/placeholder.svg?height=40&width=40",
-      lastMessage: "Delivered beyond expectations",
+      lastMessage: "Amazing work ethic and determination",
       timestamp: "Monday",
       isOnline: true,
       messages: [
         {
-          text: "Emily, how did you find working with me on the DataCorp analytics dashboard?",
+          text: "Aditya, could you share a testimonial about our collaboration?",
           isFromMe: true,
-          timestamp: new Date("2024-01-12T10:15:00"),
+          timestamp: new Date("2025-05-10T10:15:00"),
         },
         {
-          text: "Sai, you delivered way beyond our expectations! The machine learning models you integrated have transformed how we analyze customer data.",
+          text:
+            "Sai Karthik has a really amazing work ethic and determination. He stands out for being adaptable and productive, which makes him a great asset to any project. It's amazing how well he can handle several jobs at once and provide excellent outcomes. His persistent dedication and enthusiasm for perfection are absolutely admirable.",
           isFromMe: false,
-          timestamp: new Date("2024-01-12T10:20:00"),
-        },
-        {
-          text: "Your code quality is exceptional - clean, well-documented, and scalable. Our engineering team was impressed with the architecture.",
-          isFromMe: false,
-          timestamp: new Date("2024-01-12T10:21:00"),
-        },
-        {
-          text: "The real-time dashboard you built processes millions of data points seamlessly. It's exactly what we needed for our enterprise clients.",
-          isFromMe: false,
-          timestamp: new Date("2024-01-12T10:23:00"),
-        },
-      ],
-    },
-    {
-      id: "alex-creative",
-      name: "Alex Thompson",
-      company: "Creative Studios",
-      avatar: "/placeholder.svg?height=40&width=40",
-      lastMessage: "Amazing attention to detail!",
-      timestamp: "Last week",
-      isOnline: false,
-      messages: [
-        {
-          text: "Alex, what was your experience like working with me on the Creative Studios website?",
-          isFromMe: true,
-          timestamp: new Date("2024-01-08T15:45:00"),
-        },
-        {
-          text: "Your attention to detail is incredible! Every animation, every interaction was perfectly crafted.",
-          isFromMe: false,
-          timestamp: new Date("2024-01-08T15:50:00"),
-        },
-        {
-          text: "The way you brought our design vision to life with those smooth animations and micro-interactions... our clients are blown away!",
-          isFromMe: false,
-          timestamp: new Date("2024-01-08T15:51:00"),
-        },
-        {
-          text: "You didn't just build a website - you created an experience. The performance is lightning fast too, even with all those animations.",
-          isFromMe: false,
-          timestamp: new Date("2024-01-08T15:52:00"),
-        },
-        {
-          text: "Definitely recommending you to all our network. You're a true craftsman!",
-          isFromMe: false,
-          timestamp: new Date("2024-01-08T15:53:00"),
+          timestamp: new Date("2025-05-10T10:20:00"),
         },
       ],
     },
@@ -179,9 +114,10 @@ export default function MessagesApp() {
       setDisplayedMessages([])
       setIsTyping(false)
 
+      // generate stable, unique ids using timestamp + sender
       const messages = selectedContact.messages.map((msg, index) => ({
         ...msg,
-        id: `${selectedContact.id}-${index}`,
+        id: `${selectedContact.id}-${msg.isFromMe ? "me" : "them"}-${msg.timestamp.getTime()}-${index}`,
       }))
 
       // Animate messages in sequence
@@ -193,22 +129,31 @@ export default function MessagesApp() {
           if (!currentMessage.isFromMe) {
             // Show typing indicator before client messages
             setIsTyping(true)
-            setTimeout(() => {
+            const t1 = window.setTimeout(() => {
               setIsTyping(false)
               setDisplayedMessages((prev) => [...prev, currentMessage])
               currentIndex++
-              setTimeout(showNextMessage, 800)
+              const t2 = window.setTimeout(showNextMessage, 800)
+              timeoutsRef.current.push(t2)
             }, 1500)
+            timeoutsRef.current.push(t1)
           } else {
             // Show user messages immediately
             setDisplayedMessages((prev) => [...prev, currentMessage])
             currentIndex++
-            setTimeout(showNextMessage, 600)
+            const t3 = window.setTimeout(showNextMessage, 600)
+            timeoutsRef.current.push(t3)
           }
         }
       }
 
       showNextMessage()
+    }
+
+    return () => {
+      // Clear pending timers to avoid duplicate message appends
+      timeoutsRef.current.forEach((t) => clearTimeout(t))
+      timeoutsRef.current = []
     }
   }, [selectedContact])
 
@@ -226,14 +171,14 @@ export default function MessagesApp() {
   }
 
   return (
-    <div className="flex h-full bg-white">
+    <div className="flex h-full bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
       {/* Sidebar */}
-      <div className="w-80 bg-gray-50 border-r border-gray-200 flex flex-col">
+      <div className="w-80 bg-white/60 dark:bg-gray-900/60 backdrop-blur border-r border-gray-200/60 dark:border-gray-800/60 flex flex-col">
         {/* Header */}
-        <div className="p-4 border-b border-gray-200">
+        <div className="p-4 border-b border-gray-200/60 dark:border-gray-800/60">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">Messages</h2>
-            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Messages</h2>
+            <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-lg transition-colors">
               <Search size={18} className="text-gray-500" />
             </button>
           </div>
@@ -244,8 +189,8 @@ export default function MessagesApp() {
           {contacts.map((contact) => (
             <motion.button
               key={contact.id}
-              className={`w-full p-4 flex items-center space-x-3 hover:bg-gray-100 transition-colors text-left ${
-                selectedContact?.id === contact.id ? "bg-blue-100" : ""
+              className={`w-full p-4 flex items-center space-x-3 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors text-left ${
+                selectedContact?.id === contact.id ? "bg-blue-100/70 dark:bg-blue-900/30" : ""
               }`}
               onClick={() => setSelectedContact(contact)}
               whileHover={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
@@ -253,16 +198,16 @@ export default function MessagesApp() {
               <div className="relative">
                 <img src={contact.avatar || "/placeholder.svg"} alt={contact.name} className="w-12 h-12 rounded-full" />
                 {contact.isOnline && (
-                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white dark:border-gray-900 rounded-full"></div>
                 )}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-medium text-gray-900 truncate">{contact.name}</h3>
-                  <span className="text-xs text-gray-500">{contact.timestamp}</span>
+                  <h3 className="font-medium text-gray-900 dark:text-gray-100 truncate">{contact.name}</h3>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">{contact.timestamp}</span>
                 </div>
-                <p className="text-sm text-gray-600 truncate">{contact.company}</p>
-                <p className="text-sm text-gray-500 truncate mt-1">{contact.lastMessage}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 truncate">{contact.company}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 truncate mt-1">{contact.lastMessage}</p>
               </div>
             </motion.button>
           ))}
@@ -274,7 +219,7 @@ export default function MessagesApp() {
         {selectedContact ? (
           <>
             {/* Chat Header */}
-            <div className="p-4 border-b border-gray-200 flex items-center justify-between">
+            <div className="p-4 border-b border-gray-200/60 dark:border-gray-800/60 flex items-center justify-between bg-white/60 dark:bg-gray-900/60 backdrop-blur">
               <div className="flex items-center space-x-3">
                 <img
                   src={selectedContact.avatar || "/placeholder.svg"}
@@ -282,25 +227,32 @@ export default function MessagesApp() {
                   className="w-10 h-10 rounded-full"
                 />
                 <div>
-                  <h3 className="font-medium text-gray-900">{selectedContact.name}</h3>
-                  <p className="text-sm text-gray-500">{selectedContact.company}</p>
+                  <h3 className="font-medium text-gray-900 dark:text-gray-100">{selectedContact.name}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{selectedContact.company}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
-                <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-lg transition-colors">
                   <Phone size={18} className="text-gray-500" />
                 </button>
-                <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-lg transition-colors">
                   <VideoIcon size={18} className="text-gray-500" />
                 </button>
-                <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-lg transition-colors">
                   <Info size={18} className="text-gray-500" />
+                </button>
+                <button
+                  aria-label="Close Messages app"
+                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-lg transition-colors"
+                  onClick={() => closeWindow("messages")}
+                >
+                  <X size={18} className="text-gray-500" />
                 </button>
               </div>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0 bg-transparent">
               <AnimatePresence>
                 {displayedMessages.map((message, index) => (
                   <motion.div
@@ -314,11 +266,11 @@ export default function MessagesApp() {
                       className={`max-w-xs lg:max-w-md px-4 py-2 rounded-2xl ${
                         message.isFromMe
                           ? "bg-blue-500 text-white rounded-br-md"
-                          : "bg-gray-200 text-gray-900 rounded-bl-md"
+                          : "bg-gray-200/80 dark:bg-gray-800/80 text-gray-900 dark:text-gray-100 rounded-bl-md"
                       }`}
                     >
                       <p className="text-sm">{message.text}</p>
-                      <p className={`text-xs mt-1 ${message.isFromMe ? "text-blue-100" : "text-gray-500"}`}>
+                      <p className={`text-xs mt-1 ${message.isFromMe ? "text-blue-100" : "text-gray-500 dark:text-gray-400"}`}>
                         {formatTime(message.timestamp)}
                       </p>
                     </div>
@@ -333,7 +285,7 @@ export default function MessagesApp() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                   >
-                    <div className="bg-gray-200 px-4 py-2 rounded-2xl rounded-bl-md">
+                    <div className="bg-gray-200/80 dark:bg-gray-800/80 px-4 py-2 rounded-2xl rounded-bl-md">
                       <div className="flex space-x-1">
                         <motion.div
                           className="w-2 h-2 bg-gray-500 rounded-full"
@@ -361,8 +313,8 @@ export default function MessagesApp() {
         ) : (
           <div className="flex-1 flex items-center justify-center">
             <div className="text-center">
-              <h3 className="text-xl font-medium text-gray-900 mb-2">Select a conversation</h3>
-              <p className="text-gray-500">Choose a client to view testimonials</p>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-2">Select a conversation</h3>
+              <p className="text-gray-500 dark:text-gray-400">Choose a client to view testimonials</p>
             </div>
           </div>
         )}

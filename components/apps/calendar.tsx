@@ -45,123 +45,115 @@ export default function CalendarApp() {
 
   const events: TimelineEvent[] = [
     {
-      id: "quantumleap-ai",
-      title: "AI Engineer",
-      company: "QuantumLeap AI",
-      location: "San Francisco, CA",
-      startDate: new Date("2023-08-01"),
+      id: "resumatch-intern",
+      title: "Software Engineer Intern",
+      company: "resumatch.io",
+      location: "United States · Remote",
+      startDate: new Date("2025-06-01"),
       endDate: null,
       type: "work",
-      description: "Leading AI/ML development at a cutting-edge startup focused on enterprise AI solutions.",
-      responsibilities: [
-        "Led development of real-time recommendation engine using collaborative filtering",
-        "Architected scalable ML pipelines processing millions of data points daily",
-        "Implemented deep learning models for natural language processing",
-        "Collaborated with product team to define AI-driven features",
-      ],
-      achievements: [
-        "Achieved 15% increase in user engagement through recommendation engine optimization",
-        "Reduced model inference time by 60% through optimization techniques",
-        "Built automated ML pipeline reducing deployment time from days to hours",
-      ],
-      technologies: ["Python", "PyTorch", "TensorFlow", "AWS", "Docker", "Kubernetes", "PostgreSQL"],
+      description: "Developing features across the ResuMatch platform and related extensions.",
+      responsibilities: [],
+      achievements: [],
+      technologies: ["Next.js", "TypeScript", "PostgreSQL", "Chrome APIs"],
       color: "bg-blue-500",
     },
     {
-      id: "software-intern",
-      title: "Software Engineer Intern",
-      company: "TechFlow Inc",
-      location: "Austin, TX",
-      startDate: new Date("2023-05-01"),
-      endDate: new Date("2023-07-31"),
+      id: "margros-founding",
+      title: "Founding Engineer & Product Lead",
+      company: "Margros",
+      location: "",
+      startDate: new Date("2024-11-01"),
+      endDate: null,
       type: "work",
-      description: "Full-stack development internship focusing on customer service automation.",
-      responsibilities: [
-        "Developed customer service chatbot using NLP and machine learning",
-        "Built responsive web interfaces using React and TypeScript",
-        "Integrated third-party APIs for payment processing and analytics",
-        "Participated in agile development processes and code reviews",
-      ],
-      achievements: [
-        "Delivered chatbot that reduced customer service response time by 40%",
-        "Implemented features used by 10,000+ daily active users",
-        "Received outstanding intern performance rating",
-      ],
-      technologies: ["React", "TypeScript", "Node.js", "Python", "MongoDB", "AWS"],
+      description: "Leading product and engineering for Margros systems and web.",
+      responsibilities: [],
+      achievements: [],
+      technologies: ["Next.js", "Node.js", "PostgreSQL"],
       color: "bg-green-500",
     },
     {
-      id: "smart-india-hackathon",
-      title: "Winner - Smart India Hackathon",
-      company: "Government of India",
-      location: "New Delhi, India",
-      startDate: new Date("2023-03-15"),
-      endDate: new Date("2023-03-17"),
-      type: "achievement",
-      description: "Won national hackathon with innovative AI solution for agricultural optimization.",
+      id: "iic-gm",
+      title: "General Manager",
+      company: "Institution's Innovation Council, BMSIT&M",
+      location: "Bengaluru, Karnataka, India · On-site",
+      startDate: new Date("2025-04-01"),
+      endDate: null,
+      type: "work",
+      description:
+        "Overseeing strategy and operations for the Institution’s Innovation Council, driving entrepreneurship and innovation.",
       responsibilities: [
-        "Led team of 6 developers in 48-hour hackathon",
-        "Developed AI-powered crop yield prediction system",
-        "Created mobile app for farmers with real-time recommendations",
-        "Presented solution to panel of government officials and industry experts",
+        "Develop yearly innovation roadmaps aligned with IIC/MIC",
+        "Lead cross-functional teams and manage events/workshops",
+        "Build partnerships with industry and incubators",
+        "Ensure reporting and compliance",
       ],
-      achievements: [
-        "First place among 1000+ participating teams nationwide",
-        "Solution adopted by state agriculture department for pilot program",
-        "Featured in national technology publications",
-      ],
-      technologies: ["Python", "Machine Learning", "React Native", "Firebase", "Google Cloud"],
+      achievements: [],
+      technologies: [],
       color: "bg-yellow-500",
     },
     {
-      id: "computer-science-degree",
-      title: "B.Tech Computer Science",
-      company: "Indian Institute of Technology",
-      location: "Mumbai, India",
-      startDate: new Date("2020-08-01"),
-      endDate: new Date("2024-05-31"),
-      type: "education",
-      description: "Bachelor's degree in Computer Science with focus on AI/ML and software engineering.",
-      responsibilities: [
-        "Completed coursework in algorithms, data structures, and machine learning",
-        "Conducted research in natural language processing",
-        "Teaching assistant for introductory programming courses",
-        "Active member of coding club and hackathon organizing committee",
-      ],
-      achievements: [
-        "Graduated with First Class Honors (GPA: 8.7/10)",
-        "Published research paper on sentiment analysis in regional languages",
-        "Led university team to victory in inter-college programming contest",
-      ],
-      technologies: ["Python", "Java", "C++", "Machine Learning", "Data Structures", "Algorithms"],
+      id: "iic-marketing",
+      title: "Marketing Team Member",
+      company: "Institution's Innovation Council, BMSIT&M",
+      location: "Remote",
+      startDate: new Date("2024-12-01"),
+      endDate: new Date("2025-04-30"),
+      type: "work",
+      description:
+        "Strategic planning, social media marketing, sponsorship management, and outreach for IIC initiatives.",
+      responsibilities: [],
+      achievements: [],
+      technologies: [],
       color: "bg-purple-500",
     },
     {
-      id: "freelance-projects",
-      title: "Freelance Developer",
-      company: "Self-Employed",
-      location: "Remote",
-      startDate: new Date("2022-01-01"),
-      endDate: new Date("2023-04-30"),
+      id: "redpaper-intern",
+      title: "Web Developer & AI Contributor | Concentration",
+      company: "RedPaper",
+      location: "Kathmandu, Nepal · Remote",
+      startDate: new Date("2025-02-01"),
+      endDate: new Date("2025-04-30"),
       type: "work",
-      description: "Full-stack development services for startups and small businesses.",
-      responsibilities: [
-        "Built custom web applications for diverse client needs",
-        "Developed Chrome extensions with 10K+ active users",
-        "Created SaaS platforms with subscription billing integration",
-        "Provided technical consulting for startup founders",
-      ],
-      achievements: [
-        "Delivered 15+ successful projects with 100% client satisfaction",
-        "Generated $50K+ in revenue through freelance work",
-        "Built applications serving 25,000+ combined users",
-      ],
-      technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe", "Vercel"],
+      description:
+        "Contributed to Art Attack and Turtle Justice projects; integrated AI-driven solutions and collaborated across teams.",
+      responsibilities: [],
+      achievements: [],
+      technologies: ["Next.js", "TypeScript", "AI"],
       color: "bg-red-500",
+    },
+    {
+      id: "waycup-cofounder",
+      title: "Co-Founder",
+      company: "Waycup Studios",
+      location: "Bengaluru, India · Remote",
+      startDate: new Date("2022-07-01"),
+      endDate: new Date("2024-12-31"),
+      type: "work",
+      description: "Led projects across web and game design, managing delivery end-to-end.",
+      responsibilities: [],
+      achievements: [],
+      technologies: ["Next.js", "React"],
+      color: "bg-indigo-500",
+    },
+    {
+      id: "animecanvas-senior",
+      title: "Senior Web Developer",
+      company: "Anime Canvas",
+      location: "Bengaluru, India · Remote",
+      startDate: new Date("2024-08-01"),
+      endDate: new Date("2024-11-30"),
+      type: "work",
+      description:
+        "Designed and developed AnimeCanvas.in with responsive e‑commerce, high performance and animations.",
+      responsibilities: [],
+      achievements: ["Live: https://animecanvas.in"],
+      technologies: ["Next.js", "Tailwind CSS", "Vercel", "Framer Motion"],
+      color: "bg-pink-500",
     },
   ]
 
-  const years = [2020, 2021, 2022, 2023, 2024]
+  const years = [2022, 2023, 2024, 2025]
 
   const getEventsForYear = (year: number) => {
     return events.filter((event) => {
@@ -182,7 +174,7 @@ export default function CalendarApp() {
         {/* Timeline Line */}
         <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300"></div>
 
-        <div className="space-y-8">
+        <div className="space-y-8 pb-10">
           {sortedEvents.map((event, index) => (
             <motion.div
               key={event.id}
@@ -196,7 +188,7 @@ export default function CalendarApp() {
 
               {/* Event Card */}
               <motion.div
-                className="flex-1 bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                className="flex-1 bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer pb-10"
                 whileHover={{ scale: 1.02 }}
                 onClick={() => onEventClick(event)}
               >

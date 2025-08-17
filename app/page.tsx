@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import dynamic from 'next/dynamic'
 import MenuBar from "@/components/desktop/menu-bar"
-import Dock from "@/components/desktop/dock"
 import Desktop from "@/components/desktop/desktop"
 import { WindowManagerProvider } from "@/components/desktop/window-manager"
+
+const Dock = dynamic(() => import('@/components/desktop/dock'), { ssr: false })
 
 export default function MacOSPortfolio() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
