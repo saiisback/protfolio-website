@@ -20,8 +20,8 @@ const merriweather = Merriweather({
 export const metadata: Metadata = {
   title: "Sai Karthik Ketha - Software Engineer & AI/ML Engineer",
   description:
-    "Personal portfolio of Sai Karthik Ketha - Software Engineer & AI/ML Engineer, designed in vintage newspaper style",
-  generator: "v0.app",
+    "Personal portfolio of Sai Karthik Ketha - Software Engineer & AI/ML Engineer",
+  
 }
 
 export default function RootLayout({
