@@ -31,6 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${merriweather.variable}`}>
+      <head>
+        <link rel="icon" href="/sk.png" type="image/png" />
+      </head>
       <body>{children}
         <Analytics />
       </body>
