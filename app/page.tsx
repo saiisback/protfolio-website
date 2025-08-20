@@ -734,7 +734,7 @@ export default function Portfolio() {
                 <Image
                   src={hobby.image || "/placeholder.svg"}
                   alt={hobby.name}
-                  className="w-full h-24 sm:h-32 object-cover mb-2 sm:mb-3 grayscale hover:grayscale-0 transition-all newspaper-border"
+                  className="w-full h-64 sm:h-32 object-cover mb-2 sm:mb-3 grayscale hover:grayscale-0 transition-all newspaper-border"
                   width={200}
                   height={128}
                 />
