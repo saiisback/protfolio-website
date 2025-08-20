@@ -703,16 +703,20 @@ export default function Portfolio() {
         </section>
 
         {/* Hobbies & Interests - Magazine Clippings Style */}
-        <section className="mb-8 sm:mb-12 pb-6 sm:pb-8 border-b-2 border-foreground">
+          <section className="mb-12 pb-8 border-b-2 border-foreground">
+
           <div className="scroll-animate">
             <h2 className="newspaper-headline text-3xl sm:text-4xl md:text-5xl text-center mb-6 sm:mb-8 animate-slide-in-right">
               LIFE BEYOND CODE
-              <span className="newspaper-symbol ml-2 sm:ml-4">★</span>
+                            <span className="newspaper-symbol ml-4">★</span>
+
             </h2>
-            <div className="newspaper-separator w-16 sm:w-24 mx-auto mb-8 sm:mb-12"></div>
+                        <div className="newspaper-separator w-24 mx-auto mb-12"></div>
+
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
             {[
               { name: "Karate", image: "/karate.png" },
               { name: "Mountain Hiking", image: "/mountain.png" },
@@ -724,7 +728,8 @@ export default function Portfolio() {
             ].map((hobby, index) => (
               <div
                 key={index}
-                className="newspaper-border bg-background p-2 sm:p-3 hover:shadow-lg transition-shadow relative scroll-zoom"
+                                className="newspaper-border bg-background p-3 hover:shadow-lg transition-shadow relative scroll-zoom"
+
               >
                 {index % 3 === 0 && (
                   <div className="classified-stamp" style={{ fontSize: "6px", top: "5px", right: "5px" }}>
@@ -734,11 +739,13 @@ export default function Portfolio() {
                 <Image
                   src={hobby.image || "/placeholder.svg"}
                   alt={hobby.name}
-                  className="w-full h-64 sm:h-32 object-cover mb-2 sm:mb-3 grayscale hover:grayscale-0 transition-all newspaper-border"
+                                    className="w-full h-62 object-cover mb-3 grayscale hover:grayscale-0 transition-all newspaper-border"
+
                   width={200}
                   height={128}
                 />
-                <p className="newspaper-body font-bold text-xs sm:text-sm text-center">{hobby.name}</p>
+                                <p className="newspaper-body font-bold text-sm text-center">{hobby.name}</p>
+
                 {index % 4 === 1 && (
                   <div
                     className="ink-spot"
