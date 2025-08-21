@@ -453,7 +453,7 @@ export default function Portfolio() {
             ].map((project, index) => (
               <Card
                 key={index}
-                className="newspaper-border p-4 sm:p-6 hover:shadow-lg transition-shadow bg-card relative scroll-zoom"
+                className="newspaper-border transition-all p-4 sm:p-6 bg-card relative scroll-zoom"
               >
                 <div className="confidential-stamp" style={{ fontSize: "8px" }}>
                   {project.stamp}
@@ -469,7 +469,7 @@ export default function Portfolio() {
                   />
                 </div>
                 <p className="newspaper-body text-xs sm:text-sm mb-3">{project.description}</p>
-               {/* <p className="newspaper-body text-xs text-muted-foreground mb-3 font-semibold">{project.impact}</p> */}
+                {/* <p className="newspaper-body text-xs text-muted-foreground mb-3 font-semibold">{project.impact}</p> */}
                 <div className="flex flex-wrap gap-1 mb-3">
                   {project.tech.map((tech, techIndex) => (
                     <Badge key={techIndex} variant="secondary" className="text-xs newspaper-border">
@@ -703,19 +703,19 @@ export default function Portfolio() {
         </section>
 
         {/* Hobbies & Interests - Magazine Clippings Style */}
-          <section className="mb-12 pb-8 border-b-2 border-foreground">
+        <section className="mb-12 pb-8 border-b-2 border-foreground">
 
           <div className="scroll-animate">
             <h2 className="newspaper-headline text-3xl sm:text-4xl md:text-5xl text-center mb-6 sm:mb-8 animate-slide-in-right">
               LIFE BEYOND CODE
-                            <span className="newspaper-symbol ml-4">★</span>
+              <span className="newspaper-symbol ml-4">★</span>
 
             </h2>
-                        <div className="newspaper-separator w-24 mx-auto mb-12"></div>
+            <div className="newspaper-separator w-24 mx-auto mb-12"></div>
 
           </div>
 
-               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 
             {[
               { name: "Karate", image: "/karate.png" },
@@ -724,11 +724,11 @@ export default function Portfolio() {
               { name: "Writing", image: "/writing.png" },
               { name: "Reading", image: "/reading.png" },
               { name: "Travel", image: "/travel.png" },
-              
+
             ].map((hobby, index) => (
               <div
                 key={index}
-                                className="newspaper-border bg-background p-3 hover:shadow-lg transition-shadow relative scroll-zoom"
+                className="newspaper-border p-3 grayscale hover:grayscale-0 transition-all relative scroll-zoom"
 
               >
                 {index % 3 === 0 && (
@@ -739,12 +739,12 @@ export default function Portfolio() {
                 <Image
                   src={hobby.image || "/placeholder.svg"}
                   alt={hobby.name}
-                                    className="w-full h-62 object-cover mb-3 grayscale hover:grayscale-0 transition-all newspaper-border"
+                  className="w-full h-62 object-cover mb-3 grayscale hover:grayscale-0 transition-all newspaper-border"
 
                   width={200}
                   height={128}
                 />
-                                <p className="newspaper-body font-bold text-sm text-center">{hobby.name}</p>
+                <p className="newspaper-body font-bold text-sm text-center">{hobby.name}</p>
 
                 {index % 4 === 1 && (
                   <div
@@ -781,46 +781,46 @@ export default function Portfolio() {
                 <div className="classified-stamp" style={{ fontSize: "8px", top: "5px", right: "5px" }}>
                   CONTACT
                 </div>
-                
+
                 <h3 className="newspaper-subhead text-lg sm:text-xl mb-4">CONTACT INFORMATION</h3>
                 <div className="space-y-3 newspaper-body text-sm sm:text-base">
-                      <p>
-                        <strong>Email:</strong>{" "}
-                        <a
-                          href="mailto:karthiksaiketha@gmail.com"
-                          className="underline  hover:bg-black hover:text-white text-xs sm:text-sm break-all"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          karthiksaiketha@gmail.com
-                        </a>
-                      </p>
-                      <p>
-                        <strong>Location:</strong> Bengaluru, Karnataka, India
-                      </p>
-                      <p>
-                        <strong>LinkedIn:</strong>{" "}
-                        <a
-                          href="https://linkedin.com/in/sai-karthik-ketha"
-                          className="underline  hover:bg-black hover:text-white text-xs sm:text-sm break-all"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          /in/sai-karthik-ketha
-                        </a>
-                      </p>
-                      <p>
-                        <strong>GitHub:</strong>{" "}
-                        <a
-                          href="https://github.com/saiisback"
-                          className="underline  hover:bg-black hover:text-white text-xs sm:text-sm break-all"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          /saiisback
-                        </a>
-                      </p>
-                  
+                  <p>
+                    <strong>Email:</strong>{" "}
+                    <a
+                      href="mailto:karthiksaiketha@gmail.com"
+                      className="underline  hover:bg-black hover:text-white text-xs sm:text-sm break-all"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      karthiksaiketha@gmail.com
+                    </a>
+                  </p>
+                  <p>
+                    <strong>Location:</strong> Bengaluru, Karnataka, India
+                  </p>
+                  <p>
+                    <strong>LinkedIn:</strong>{" "}
+                    <a
+                      href="https://linkedin.com/in/sai-karthik-ketha"
+                      className="underline  hover:bg-black hover:text-white text-xs sm:text-sm break-all"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      /in/sai-karthik-ketha
+                    </a>
+                  </p>
+                  <p>
+                    <strong>GitHub:</strong>{" "}
+                    <a
+                      href="https://github.com/saiisback"
+                      className="underline  hover:bg-black hover:text-white text-xs sm:text-sm break-all"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      /saiisback
+                    </a>
+                  </p>
+
                 </div>
 
                 <div className="mt-4 sm:mt-6 pt-4 border-t border-border">
@@ -839,7 +839,7 @@ export default function Portfolio() {
                 >
                   URGENT
                 </div>
-                
+
                 <h3 className="newspaper-subhead text-lg sm:text-xl mb-4 mt-6">SEND MESSAGE</h3>
                 <form className="space-y-4">
                   <Input placeholder="Your Name" className="newspaper-body newspaper-border text-sm" />
