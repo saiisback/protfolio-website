@@ -3,7 +3,28 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { projects } from "@/data/portfolio-data";
+
+const sectionVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease: "easeOut", staggerChildren: 0.14 },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const MotionLink = motion(Link);
 
 export default function Projects() {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
@@ -29,18 +50,28 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="space-y-12">
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
+    <motion.section
+      id="projects"
+      className="space-y-12"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.div
+        className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+        variants={cardVariants}
+      >
+        <motion.div variants={cardVariants}>
           <p className="text-sm uppercase tracking-[0.35em] text-white/40">
             {"// Projects"}
           </p>
           <h2 className="mt-2 text-3xl font-semibold text-white md:text-4xl">
             Selected collaborations and case studies.
           </h2>
-        </div>
-      </div>
-      <div className="space-y-6">
+        </motion.div>
+      </motion.div>
+      <motion.div className="space-y-6" variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}>
         {projects.map((project) => {
           const isExpanded = expanded[project.title] || false;
           const expandedContent = project.expandedContent;
@@ -49,12 +80,14 @@ export default function Projects() {
           const hasLinks = Object.keys(links).length > 0;
 
           return (
-            <article
+            <motion.article
               key={project.title}
               className="flex flex-col gap-6 rounded-3xl border border-white/10 bg-white/[0.02] p-8 transition hover:border-white/40 hover:bg-white/[0.05]"
+              variants={cardVariants}
+              whileHover={{ y: -10, borderColor: "rgba(255,255,255,0.35)", boxShadow: "0 30px 60px rgba(2,8,23,0.45)" }}
             >
               <div className="flex items-start justify-between gap-6">
-                <div className="max-w-2xl space-y-4 flex-1">
+                <motion.div className="max-w-2xl space-y-4 flex-1" variants={cardVariants}>
                   <div className="flex items-center gap-4 text-sm text-white/40">
                     <span className="font-semibold tracking-[0.3em]">
                       ({project.year})
@@ -65,30 +98,34 @@ export default function Projects() {
                     {project.title}
                   </h3>
                   <p className="text-sm text-white/60">{project.blurb}</p>
-                  <div className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.25em] text-white/40">
+                  <motion.div
+                    className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.25em] text-white/40"
+                    variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+                  >
                     {project.tags.map((tag) => (
-                      <span
+                      <motion.span
                         key={tag}
                         className="rounded-full border border-white/15 px-3 py-1"
+                        variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } } }}
                       >
                         {tag}
-                      </span>
+                      </motion.span>
                     ))}
-                  </div>
-                </div>
-                <button
+                  </motion.div>
+                </motion.div>
+                <motion.button
                   onClick={() => toggleExpand(project.title)}
                   className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/[0.05] text-white/70 transition-all hover:border-white/60 hover:bg-white/[0.1] hover:text-white"
                   aria-label={isExpanded ? "Collapse" : "Expand"}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  <svg
-                    className="h-5 w-5 transition-transform duration-300"
-                    style={{
-                      transform: isExpanded ? "rotate(45deg)" : "rotate(0deg)",
-                    }}
+                  <motion.svg
+                    className="h-5 w-5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    animate={{ rotate: isExpanded ? 45 : 0 }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
                   >
                     <path
                       strokeLinecap="round"
@@ -96,86 +133,135 @@ export default function Projects() {
                       strokeWidth={2}
                       d="M12 4v16m8-8H4"
                     />
-                  </svg>
-                </button>
+                  </motion.svg>
+                </motion.button>
               </div>
 
-              {isExpanded && expandedContent && (
-                <div className="mt-4 space-y-6 border-t border-white/10 pt-6 animate-in fade-in slide-in-from-top-4 duration-300">
-                  {expandedContent.description && (
-                    <p className="text-sm leading-relaxed text-white/70">
-                      {expandedContent.description}
-                    </p>
-                  )}
-                  <div
-                    className={`grid gap-6 ${
-                      hasImage && hasLinks
-                        ? "md:grid-cols-2"
-                        : hasImage || hasLinks
-                        ? "md:grid-cols-1"
-                        : ""
-                    }`}
+              <AnimatePresence initial={false} mode="wait">
+                {isExpanded && expandedContent && (
+                  <motion.div
+                    key="expanded"
+                    className="mt-4 space-y-6 border-t border-white/10 pt-6"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
                   >
-                    {hasImage && (
-                      <div className="relative h-64 w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
-                        <Image
-                          src={expandedContent.image}
-                          alt={project.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
+                    {expandedContent.description && (
+                      <motion.p
+                        className="text-sm leading-relaxed text-white/70"
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -12 }}
+                        transition={{ duration: 0.35, ease: "easeOut", delay: 0.05 }}
+                      >
+                        {expandedContent.description}
+                      </motion.p>
                     )}
-                    {hasLinks && (
-                      <div className={`flex flex-wrap gap-4 ${hasImage ? "items-center justify-center" : ""}`}>
-                        {links.website && (
-                          <Link
-                            href={links.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:bg-white/[0.1] hover:text-white"
-                          >
-                            {getLinkLabel("website")}
-                            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 transition group-hover:translate-x-1">
-                              ↗
-                            </span>
-                          </Link>
-                        )}
-                        {links.npm && (
-                          <Link
-                            href={links.npm}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:bg-white/[0.1] hover:text-white"
-                          >
-                            {getLinkLabel("npm")}
-                            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 transition group-hover:translate-x-1">
-                              ↗
-                            </span>
-                          </Link>
-                        )}
-                        {links.github && (
-                          <Link
-                            href={links.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:bg-white/[0.1] hover:text-white"
-                          >
-                            {getLinkLabel("github")}
-                            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 transition group-hover:translate-x-1">
-                              ↗
-                            </span>
-                          </Link>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-            </article>
+                    <motion.div
+                      className={`grid gap-6 ${
+                        hasImage && hasLinks
+                          ? "md:grid-cols-2"
+                          : hasImage || hasLinks
+                          ? "md:grid-cols-1"
+                          : ""
+                      }`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
+                    >
+                      {hasImage && (
+                        <motion.div
+                          className="relative h-64 w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]"
+                          initial={{ opacity: 0, scale: 0.96 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.96 }}
+                          transition={{ duration: 0.4, ease: "easeOut" }}
+                        >
+                          <Image
+                            src={expandedContent.image}
+                            alt={project.title}
+                            fill
+                            className="object-cover"
+                          />
+                        </motion.div>
+                      )}
+                      {hasLinks && (
+                        <motion.div
+                          className={`flex flex-wrap gap-4 ${hasImage ? "items-center justify-center" : ""}`}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.35, ease: "easeOut", delay: 0.1 }}
+                        >
+                          {links.website && (
+                            <MotionLink
+                              href={links.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:bg-white/[0.1] hover:text-white"
+                              whileHover={{ y: -4, borderColor: "rgba(255,255,255,0.5)" }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              {getLinkLabel("website")}
+                              <motion.span
+                                className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 transition group-hover:translate-x-1"
+                                initial={{ x: 0 }}
+                                whileHover={{ x: 4 }}
+                              >
+                                ↗
+                              </motion.span>
+                            </MotionLink>
+                          )}
+                          {links.npm && (
+                            <MotionLink
+                              href={links.npm}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:bg-white/[0.1] hover:text-white"
+                              whileHover={{ y: -4, borderColor: "rgba(255,255,255,0.5)" }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              {getLinkLabel("npm")}
+                              <motion.span
+                                className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 transition group-hover:translate-x-1"
+                                initial={{ x: 0 }}
+                                whileHover={{ x: 4 }}
+                              >
+                                ↗
+                              </motion.span>
+                            </MotionLink>
+                          )}
+                          {links.github && (
+                            <MotionLink
+                              href={links.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/60 hover:bg-white/[0.1] hover:text-white"
+                              whileHover={{ y: -4, borderColor: "rgba(255,255,255,0.5)" }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              {getLinkLabel("github")}
+                              <motion.span
+                                className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 transition group-hover:translate-x-1"
+                                initial={{ x: 0 }}
+                                whileHover={{ x: 4 }}
+                              >
+                                ↗
+                              </motion.span>
+                            </MotionLink>
+                          )}
+                        </motion.div>
+                      )}
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.article>
           );
         })}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

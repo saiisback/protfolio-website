@@ -15,9 +15,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Graham — Design & Strategy",
+  title: "Sai karthik ketha portfolio",
   description:
-    "Portfolio for Alex Graham showcasing branding, product design, and web strategy offerings.",
+    "Portfolio for Sai karthik ketha showcasing my work, projects, and skills.",
 };
 
 export default function RootLayout({
