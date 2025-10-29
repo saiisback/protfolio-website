@@ -256,13 +256,9 @@ export const TweetPreviewCard = ({ tweet }: { tweet: EnrichedTweet }) => {
   const cardData = tweet?.card?.binding_values
   if (!cardData) return null
 
-  // @ts-expect-error package doesn't have type definitions
   const title = cardData.title?.string_value || cardData.player_title?.string_value
-  // @ts-expect-error package doesn't have type definitions
   const description = cardData.description?.string_value || cardData.player_description?.string_value
-  // @ts-expect-error package doesn't have type definitions
   const cardUrl = cardData.card_url?.string_value
-  // @ts-expect-error package doesn't have type definitions
   const imageUrl = cardData.thumbnail_image_large?.image_value?.url || cardData.player_image?.image_value?.url
 
   if (!title && !description) return null
